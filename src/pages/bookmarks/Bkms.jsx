@@ -3,7 +3,7 @@ import Nav from '../../components/nav/Nav'
 import Users from '../home/homeModels/users/Users'
 import '../home/home.css'
 import Post from '../../components/post/Post'
-const BookMarks = () => {
+const Bkms = () => {
   const { getBookMarksQuery } = useGetBookMarks()
   console.log(getBookMarksQuery?.data, 'bms')
   return (
@@ -24,4 +24,4 @@ const BookMarks = () => {
     </>
   )
 }
-export default BookMarks
+export default Bkms
