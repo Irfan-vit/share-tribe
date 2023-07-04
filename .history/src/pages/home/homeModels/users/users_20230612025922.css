@@ -1,0 +1,13 @@
+.users-container{
+display: flex;
+overflow: ;
+}
+.user{
+    display: flex;
+    >div{
+        >img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

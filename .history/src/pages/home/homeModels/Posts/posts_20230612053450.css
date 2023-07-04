@@ -1,0 +1,18 @@
+.posts-home{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.post{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.post-user{
+    display: flex;
+    flex-flow: column wrap;
+    >div >img{
+        width: 100%;
+        height: auto;
+    }
+}

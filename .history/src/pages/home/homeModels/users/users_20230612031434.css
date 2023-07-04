@@ -1,0 +1,20 @@
+.users-container{
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+.user{
+    display: flex;
+    flex-flow: column wrap;
+}
+.image-user{
+    >img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.about-user{
+    display: flex;
+    flex-flow: column wrap;
+}

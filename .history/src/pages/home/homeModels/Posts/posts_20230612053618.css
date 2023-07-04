@@ -1,0 +1,19 @@
+.posts-home{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.post{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.post-user{
+    background-color: blue;
+    display: flex;
+    flex-flow: row wrap;
+    >div >img{
+        width: 3rem;
+        height: auto;
+    }
+}

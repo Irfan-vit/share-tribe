@@ -1,0 +1,11 @@
+div{
+    flex-flow: row wrap;
+    overflow: scroll;
+    >div{
+        display: flex;
+        >img{
+            height: auto;
+            width: 100%;
+        }
+    }
+}

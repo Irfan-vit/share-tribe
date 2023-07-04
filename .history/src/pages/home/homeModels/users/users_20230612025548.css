@@ -1,0 +1,10 @@
+div{
+    >div{
+        /* display: flex; */
+        flex-flow:  wrap;
+        >img{
+            height: auto;
+            width: 100%;
+        }
+    }
+}

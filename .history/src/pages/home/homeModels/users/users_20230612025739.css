@@ -1,0 +1,10 @@
+.users-container{
+    >div{
+        /* display: flex; */
+        /* flex-flow: row wrap; */
+        >img{
+            height: auto;
+            width: 100%;
+        }
+    }
+}

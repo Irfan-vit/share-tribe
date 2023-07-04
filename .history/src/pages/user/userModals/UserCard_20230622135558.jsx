@@ -1,0 +1,2 @@
+const UserCard = ()=>{}
+export default 

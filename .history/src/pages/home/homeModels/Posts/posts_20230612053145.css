@@ -1,0 +1,8 @@
+.posts-home{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.post-user{
+    
+}

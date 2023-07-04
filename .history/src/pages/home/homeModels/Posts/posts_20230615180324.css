@@ -1,0 +1,33 @@
+.posts-home{
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 100%;
+}
+
+.post{
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 100%;
+}
+
+.post-user{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: ;
+    >div >img{
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+.post-content{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    >div{
+        >img{
+            max-width: 100%;
+            height: 100%;
+        }
+    }
+}

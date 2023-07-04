@@ -1,0 +1,33 @@
+nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: red;
+    z-index: 3;
+    > ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    }
+    @media(min-width: 550px){
+        background-color: pink;
+        position: relative;
+        >ul{
+            position: sticky;
+            top: 0%;
+            flex-flow: column wrap;
+        }
+        
+    }
+} 
+.mobile-post{
+    position: fixed;
+    bottom: 0;
+    > button{
+        border-radius: ;
+    }
+}

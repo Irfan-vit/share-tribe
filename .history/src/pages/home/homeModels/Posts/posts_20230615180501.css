@@ -1,0 +1,41 @@
+.posts-home{
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 100%;
+}
+
+.post{
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 100%;
+}
+
+.post-user{
+    display: flex;
+    flex-flow: row wrap;
+    /* gap: 2%; */
+    >div >img{
+        width: 5rem;
+        height: 5rem;
+    }
+    >div{
+        background-color: red;
+        flex-basis: 20%;
+    }
+    >h2{
+        background-color: aqua;
+        flex-basis: 80%;
+    }
+}
+
+.post-content{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    >div{
+        >img{
+            max-width: 100%;
+            height: 100%;
+        }
+    }
+}

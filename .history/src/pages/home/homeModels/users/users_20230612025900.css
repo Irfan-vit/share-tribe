@@ -1,0 +1,11 @@
+.users-container{
+display: flex;
+}
+.user{
+    display: flex;
+    >div{
+        >img{
+            
+        }
+    }
+}

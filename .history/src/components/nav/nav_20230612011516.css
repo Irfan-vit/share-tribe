@@ -1,0 +1,29 @@
+nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    > ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    >hr{
+        background-color: red;
+        color: red;
+        height: 10px;
+        width: 1px;
+        }
+    }
+    > div {
+        position: absolute;
+        bottom: 150%;
+        right: 10%;
+        > button{
+        background-color: red;
+        border-radius: 100%;
+        }
+    }
+} 

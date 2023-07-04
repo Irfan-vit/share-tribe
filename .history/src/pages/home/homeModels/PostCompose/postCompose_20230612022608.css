@@ -1,0 +1,11 @@
+div{
+    >textarea{
+        width: 100%;
+    }
+    >div > div{
+        display: flex;
+        > ul {
+            
+        }
+    }
+}

@@ -1,0 +1,9 @@
+div{
+    >div{
+        display: ;
+        >img{
+            height: auto;
+            width: 100%;
+        }
+    }
+}

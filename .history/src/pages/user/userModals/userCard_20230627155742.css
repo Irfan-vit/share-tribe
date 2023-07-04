@@ -1,0 +1,56 @@
+.user-card-container{
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+}
+
+.user-card-image-container{
+    display: flex;
+    position: relative;
+}
+
+.user-card-image-container > button {
+    display: none;
+    position: absolute;
+    color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-card-image-container > button:hover {
+background: rgb(167, 165, 168);
+}
+
+.user-card-image-container:hover > button {
+    display: block;
+}
+
+.user-card-image-container > img,.edit-avatars> img{
+    width: 100%;
+    height: auto;
+    max-width: 5rem;
+    min-height: 5rem;
+    border-radius: 50%;
+}
+
+.edit-avatars{
+    display: none;
+}
+
+.user-card-image-container > img:focus + .edit-avatars{
+    display: block;
+}
+
+.edit-user-card{
+position: absolute;
+right: 0;
+top: 0;
+}
+
+
+

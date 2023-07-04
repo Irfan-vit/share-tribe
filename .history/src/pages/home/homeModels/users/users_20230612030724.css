@@ -1,0 +1,10 @@
+.users-container{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 90vw;
+    overflow-x: scroll;
+}
+.user{
+    flex-basis: 33%;
+    display: flex;
+}

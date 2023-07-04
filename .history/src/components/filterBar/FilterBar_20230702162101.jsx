@@ -1,0 +1,2 @@
+const FilterBar = () => {}
+export deafult 

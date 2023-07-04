@@ -1,0 +1,43 @@
+.posts-home{
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.filter-bar{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-options-container{
+    position: relative;
+}
+
+.filter-options{
+    display: none;
+    background-color: aquamarine;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+
+}
+.filter-options > ul {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    list-style: none;
+    padding: 0;
+    
+}
+
+.toogle-filter-options:focus + .filter-options, .filter-options:hover{
+    display: block;
+
+}

@@ -1,0 +1,9 @@
+div{
+    >div{
+        >img{
+            height: auto;
+            width: 100%;
+            object-fit: scale-down;
+        }
+    }
+}

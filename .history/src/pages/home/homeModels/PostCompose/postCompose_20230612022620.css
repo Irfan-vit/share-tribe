@@ -1,0 +1,13 @@
+div{
+    >textarea{
+        width: 100%;
+    }
+    >div > div{
+        display: flex;
+        > ul {
+            display: flex;
+            list-style: none;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.posts-home{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.post{
+    display: flex;
+}
+
+.post-user{
+    >div >img{
+        max-width: 100%;
+        height: auto;
+    }
+}
