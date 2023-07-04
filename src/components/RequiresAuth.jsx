@@ -1,12 +1,14 @@
 import { Navigate, useLocation } from 'react-router-dom'
+// import useAuth
 
 export default function RequiresAuth({ children }) {
-  const { token } = JSON.parse(localStorage.getItem('authData'))
+  const data = JSON.parse(localStorage.getItem('authData'))
+  const token = data?.token
   console.log(token)
   const location = useLocation()
-  return token ? (
-    children
-  ) : (
+  return !token || token === null ? (
     <Navigate to="/login" state={{ from: location }} replace />
+  ) : (
+    children
   )
 }
