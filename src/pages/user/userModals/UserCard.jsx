@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './userCard.css'
 import { Modal } from 'react-responsive-modal'
 import useMutateUserData from '../../../backend/queryHooks/user/useMutateUserData'
@@ -9,6 +10,7 @@ import Post from '../../../components/post/Post'
 import { useQueryClient } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 const UserCard = () => {
+  const navigate = useNavigate()
   const queryclient = useQueryClient()
   const { userId } = useParams()
   const { user } = JSON.parse(localStorage.getItem('authData'))
@@ -77,6 +79,16 @@ const UserCard = () => {
             </button>
           )}
 
+          {userId === user._id ? (
+            <button
+              onClick={() => {
+                localStorage.clear()
+                navigate('/login')
+              }}
+            >
+              Log out
+            </button>
+          ) : null}
           {/*  */}
         </div>
         {userId === user._id ? (
