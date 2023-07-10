@@ -1,5 +1,5 @@
 .users-container{
-    z-index: -1;
+    /* z-index: -1; */
     display: flex;
     max-width: 100%;
     flex-direction: row;
@@ -15,6 +15,10 @@
         position: sticky;
         top: 0;
     }
+    >a{
+        text-decoration: none;
+        color: black;
+    }
 }
 .user{
   flex-basis:20%;
@@ -23,6 +27,7 @@
   min-width: 100px;
   display: flex;
   flex-flow: column;
+  justify-content: center;
   @media(min-width: 768px){
     margin-bottom:2% ;
     display: flex;
@@ -35,7 +40,7 @@
         flex-basis: 85%;
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: flex-end;
         align-items: center;
         >:nth-child(1){
             flex-basis: 50%;
@@ -67,13 +72,7 @@
 }
 
 .search-users{
-    display: none;
     width: 100%;
     height: auto;
-    @media(min-width: 768px){
-        display: block;
-        > input{
-            width: 97%;
-        }
-    }
+    margin: 1rem 0;
 }

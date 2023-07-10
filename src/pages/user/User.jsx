@@ -9,7 +9,6 @@ const User = () => {
         <Nav />
         <div>
           <UserCard />
-          <PostsErrorBoundary />
         </div>
         <Users />
       </div>

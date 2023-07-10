@@ -4,12 +4,15 @@ import useMutateBookMarksData from '../../backend/queryHooks/bookMark/useToggleB
 import useMutateToggleLike from '../../backend/queryHooks/like/useToggleLike'
 import useMutatePostsData from '../../backend/queryHooks/post/useMutatePosts'
 import useGetUsers from '../../backend/queryHooks/user/useGetUsers'
+import useGetBookMarks from '../../backend/queryHooks/bookMark/useGetBookmarks'
 import { useAuth } from '../../context/AuthContext'
 import './post.css'
 import PostCompose from '../../pages/home/homeModels/PostCompose/PostCompose'
 import axios from 'axios'
 const Post = ({ post }) => {
-  const { authData } = useAuth()
+  const { getBookMarksQuery } = useGetBookMarks()
+  console.log(getBookMarksQuery?.data)
+  const ans = getBookMarksQuery?.data?.some((el) => el._id === post._id)
   const { getUsersQuery, getUserQuery } = useGetUsers()
   const {
     addBookMarkMutation,
@@ -22,25 +25,7 @@ const Post = ({ post }) => {
   const { toggleLikeMutation, toggleDislikeMutation } = useMutateToggleLike()
   const [openPost, setOpenPost] = useState(false)
   const [currentPostId, setCurrentPostId] = useState(null)
-  const removeBookmark = async (id) => {
-    console.log(id, 'remove Id')
-    const res = await axios.delete(`/api/users/remove-bookmark/${id}`, {
-      headers: { authorization: authData.token },
-    })
-    console.log(res.data, 'remove data')
-    return res.data
-  }
-  const addBookMarkApi = async (id) => {
-    const res = await axios.post(
-      `/api/users/bookmark/${id}`,
-      {},
-      {
-        headers: { authorization: authData.token },
-      },
-    )
-    console.log(res.data, 'add data')
-    return res.data
-  }
+
   return (
     <>
       <div className="post" id={post._id} key={post._id}>
@@ -66,23 +51,27 @@ const Post = ({ post }) => {
             </div>
             {username === post.username && (
               <div className="post-settings">
-                <button className="post-settings-button">...</button>
+                <button className="post-settings-button">
+                  <span className="material-symbols-outlined">more_horiz</span>
+                </button>
                 <div className="post-settings-content">
-                  <p
+                  <button
+                    className="filters"
                     onClick={() => {
                       setOpenPost(true)
                       setCurrentPostId(post._id)
                     }}
                   >
                     edit
-                  </p>
-                  <p
+                  </button>
+                  <button
+                    className="filters"
                     onClick={() => {
                       deletePostsMutation.mutate(post._id)
                     }}
                   >
                     delete
-                  </p>
+                  </button>
                   {/* <span href="" className="span-full"></span> */}
                 </div>
               </div>
@@ -102,38 +91,47 @@ const Post = ({ post }) => {
             />
           </div>
         </div>
-        <div className="post-icons">
-          <ul>
-            <li
-              onClick={() => {
-                toggleLikeMutation.mutate(post._id)
-              }}
-            >
-              like{post.likes?.likeCount ?? null}
-            </li>
+        {/* <div> */}
+        <ul className="post-icons">
+          {post.likes?.likeCount ? (
             <li
               onClick={() => {
                 toggleDislikeMutation.mutate(post._id)
               }}
             >
-              dislike
+              <span className="material-symbols-outlined fill">favorite</span>
             </li>
+          ) : (
             <li
               onClick={() => {
-                addBookMarkMutation.mutate(post._id)
+                toggleLikeMutation.mutate(post._id)
               }}
             >
-              bookmark
+              <span className="material-symbols-outlined">favorite</span>
             </li>
+          )}
+
+          {/* <li>{post.likes?.likeCount ? post.likes?.likeCount : 0}</li> */}
+
+          {ans ? (
             <li
               onClick={() => {
                 deleteBookMarkMutation.mutate(post._id)
               }}
             >
-              remove-bookmark
+              <span className="material-symbols-outlined fill">bookmark</span>
             </li>
-          </ul>
-        </div>
+          ) : (
+            <li
+              onClick={() => {
+                addBookMarkMutation.mutate(post._id)
+              }}
+            >
+              <span className="material-symbols-outlined">bookmark</span>
+            </li>
+          )}
+        </ul>
+        {/* </div> */}
         {currentPostId === post._id && (
           <Modal open={openPost} onClose={() => setOpenPost(false)} center>
             <PostCompose editData={post} close={setOpenPost} />

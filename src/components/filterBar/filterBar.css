@@ -1,0 +1,51 @@
+.filter-bar{
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-options-container{
+    position: relative;
+    >a{
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.filter-options{
+    display: none;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid gainsboro;
+    box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    z-index: 2;
+    /* padding: 1rem; */
+}
+.filter-options > button {
+    /* margin-top: 1rem; */
+
+}
+
+.filters{
+    background-color: transparent;
+    color: black;
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.filters:hover{
+    background-color: gainsboro;
+}
+
+.toogle-filter-options:focus + .filter-options, .filter-options:hover{
+    display: flex;
+}

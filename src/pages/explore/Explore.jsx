@@ -8,10 +8,10 @@ const Explore = () => {
   const { getPostsQuery } = useGetPosts()
   return (
     <>
-      <h1>Explore</h1>
       <div className="feed">
         <Nav />
         <div>
+          <h1>Explore</h1>
           {getPostsQuery.data?.map((post) => (
             <Post key={post._id} post={post} />
           ))}

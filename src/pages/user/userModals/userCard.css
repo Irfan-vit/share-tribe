@@ -59,7 +59,12 @@ background: rgba(54, 54, 54, 0.651);
 position: absolute;
 right: 0;
 top: 0;
+padding: 0.7rem;
+cursor: pointer;
 }
 
-
+.edit-user-card:hover{
+background-color: gainsboro;
+border-radius: 50%;
+}
 

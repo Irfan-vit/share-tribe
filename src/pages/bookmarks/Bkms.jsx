@@ -5,12 +5,12 @@ import '../home/home.css'
 import Post from '../../components/post/Post'
 const Bkms = () => {
   const { getBookMarksQuery } = useGetBookMarks()
-  console.log(getBookMarksQuery?.data, 'bms')
   return (
     <>
       <div className="feed">
         <Nav />
         <div>
+          <h1>BookMarks</h1>
           {!getBookMarksQuery?.data || getBookMarksQuery?.data.length <= 0 ? (
             <h1>none</h1>
           ) : (
