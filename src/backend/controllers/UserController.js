@@ -220,9 +220,6 @@ export const bookmarkPostHandler = function (schema, request) {
       content: post.content,
       createdAt: post.createdAt,
       updatedAt: post.updatedAt,
-      likeCount: post.likeCount,
-      likedBy: post.likedBy,
-      dislikedBy: post.dislikedBy,
     })
     // this.db.users.update(
     //   { _id: user._id },
