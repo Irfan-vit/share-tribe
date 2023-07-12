@@ -15,9 +15,13 @@
 }
 
 .user-card-image-container{
+    width: 100%;
     display: flex;
     position: relative;
     flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
 }
 
 .user-card-image-container > button {
@@ -53,6 +57,13 @@ background: rgba(54, 54, 54, 0.651);
 
 .user-card-image-container > img:focus + .edit-avatars{
     display: block;
+}
+
+.user-dta {
+    display: flex;
+    flex-flow: column wrap;
+    height: 8rem;
+    justify-content: space-evenly;
 }
 
 .edit-user-card{

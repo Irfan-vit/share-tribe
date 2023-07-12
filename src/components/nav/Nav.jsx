@@ -95,15 +95,17 @@ const Nav = () => {
           }}
         />
         {searchUsers?.map((user) => (
-          <div key={user._id} className="user">
-            <div className="image-user">
-              <img src={user.avatar} alt="" />
+          <Link to={`/user/${user._id}`} key={user._id} className="user-link">
+            <div key={user._id} className="user">
+              <div className="image-user">
+                <img src={user.avatar} alt="" />
+              </div>
+              <div className="about-user">
+                <p>{user.username}</p>
+                {/* <button>follow</button> */}
+              </div>
             </div>
-            <div className="about-user">
-              <p>{user.username}</p>
-              {/* <button>follow</button> */}
-            </div>
-          </div>
+          </Link>
         ))}
       </Modal>
       <Modal open={openPost} onClose={() => setOpenPost(false)} center>

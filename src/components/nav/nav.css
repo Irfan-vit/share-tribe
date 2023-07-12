@@ -52,3 +52,14 @@ nav{
 .nav-icons{
     font-size: 2rem;
 }
+
+.user-link {
+    text-decoration: none;
+    color: black;
+    font-weight: var(--font-weight-semi-bold);
+    font-size: 18px;
+}
+
+.user-link:hover{
+    text-decoration: underline;
+}

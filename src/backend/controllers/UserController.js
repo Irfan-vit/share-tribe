@@ -220,6 +220,9 @@ export const bookmarkPostHandler = function (schema, request) {
       content: post.content,
       createdAt: post.createdAt,
       updatedAt: post.updatedAt,
+      likeCount: post.likeCount,
+      likedBy: post.likedBy,
+      dislikedBy: post.dislikedBy,
     })
     // this.db.users.update(
     //   { _id: user._id },
@@ -453,7 +456,11 @@ export const unfollowUserHandler = function (schema, request) {
     return new Response(
       200,
       {},
-      { user: updatedUser, followUser: updatedFollowUser },
+      {
+        user: updatedUser,
+        followUser: updatedFollowUser,
+        users: this.db.users,
+      },
     )
   } catch (error) {
     return new Response(

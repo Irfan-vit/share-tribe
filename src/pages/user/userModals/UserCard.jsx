@@ -14,7 +14,7 @@ const UserCard = () => {
   const queryclient = useQueryClient()
   const { userId } = useParams()
   const { user } = JSON.parse(localStorage.getItem('authData'))
-  const ogUser = user
+  const userData = queryclient.getQueryData(['getUser', user._id])
   const { getPostsQuery } = useGetPosts()
   const [openEditUser, setOpenEditUser] = useState(false)
   const { userDataMutation } = useMutateUserData()
@@ -25,28 +25,16 @@ const UserCard = () => {
   } = useMutateToggleFollow()
   const [userProfileData, setUserProfileData] = useState({})
 
-  const searchUsers = queryclient
-    .getQueryData(['getUsers'])
-    ?.filter((user) => user.username !== ogUser.username)
-    ?.some((eachUser) => {
-      console.log(eachUser.username)
-      !getUserQuery?.data?.following?.forEach((item) => {
-        console.log(item.username, 'as')
-        return item.username === eachUser.username
-      })
-    })
-  console.log(searchUsers, 'su')
-  console.log(
-    queryclient
-      .getQueryData(['getUsers'])
-      ?.filter((user) => user.username !== getUserQuery?.data?.username),
-    'final',
+  const following = userData?.following?.some(
+    (user) => user?.username === getUserQuery?.data?.username,
   )
+
+  console.log(userData?.following, 'fw')
+
   const postsOfFollowingUsers = getPostsQuery?.data?.filter(
     (post) => getUserQuery.data?.username === post.username,
   )
 
-  console.log(postsOfFollowingUsers, 'pdf')
   return (
     <>
       <div className="user-card-container">
@@ -56,15 +44,14 @@ const UserCard = () => {
             <h1>{getUserQuery?.data?.username}</h1>
           </div>
         </div>
-        <div>
+        <div className="user-dta">
           <p>{getUserQuery?.data?.about}</p>
           <a href={getUserQuery?.data?.link}>{getUserQuery?.data?.link}</a>
-          {getUserQuery.data?.username ===
-          user.username ? null : !searchUsers ? (
+          {getUserQuery.data?.username === user.username ? null : !following ? (
             <button
               onClick={() => {
                 toggleFollowMutation.mutate(getUserQuery?.data?._id)
-                console.log('click')
+                console.log(toggleFollowMutation.data, 'click')
               }}
             >
               follow
@@ -73,13 +60,14 @@ const UserCard = () => {
             <button
               onClick={() => {
                 toggleUnfollowMutation.mutate(getUserQuery?.data?._id)
+                console.log(toggleUnfollowMutation.data, 'ufd')
               }}
             >
               Unfollow
             </button>
           )}
 
-          {userId === user._id ? (
+          {userId === userData?._id ? (
             <button
               onClick={() => {
                 localStorage.clear()
@@ -89,9 +77,8 @@ const UserCard = () => {
               Log out
             </button>
           ) : null}
-          {/*  */}
         </div>
-        {userId === user._id ? (
+        {userId === userData?._id ? (
           <span
             onClick={() => {
               setOpenEditUser(true)

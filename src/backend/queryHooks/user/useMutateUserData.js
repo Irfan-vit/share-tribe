@@ -6,6 +6,8 @@ const useMutateUserData = () => {
   const queryClient = useQueryClient()
   const { authData } = useAuth()
   const { user } = JSON.parse(localStorage.getItem('authData'))
+  const { token } = JSON.parse(localStorage.getItem('authData'))
+  console.log(token, 'ad')
   const mutateUserApi = async (userData) => {
     const res = await axios.post(
       `/api/users/edit`,
@@ -13,7 +15,7 @@ const useMutateUserData = () => {
         ...userData,
       },
       {
-        headers: { authorization: authData.token },
+        headers: { authorization: token },
       },
     )
     return res.data

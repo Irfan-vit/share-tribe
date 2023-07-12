@@ -20,8 +20,9 @@ html {
   --font-weight-bold: 700;
 }
 
-textarea{
+textarea,input{
   border: 1px solid #343434;
+  margin: 0 auto;
 }
 
 button {

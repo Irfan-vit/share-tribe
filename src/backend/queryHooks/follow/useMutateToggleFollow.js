@@ -5,9 +5,8 @@ const useMutateToggleFollow = () => {
   const queryClient = useQueryClient()
   const { user } = JSON.parse(localStorage.getItem('authData'))
   const data = JSON.parse(localStorage.getItem('authData'))
-  const mutateFollowToggleApi = async (
-    user = 'c32e8a58-6e47-4dfb-83ce-23d9792ffbac',
-  ) => {
+  const mutateFollowToggleApi = async (user) => {
+    console.log(user, 'user')
     try {
       const res = await axios.post(
         `/api/users/follow/${user}`,
@@ -21,9 +20,8 @@ const useMutateToggleFollow = () => {
       console.error(error)
     }
   }
-  const mutateUnfollowToggleApi = async (
-    user = 'c32e8a58-6e47-4dfb-83ce-23d9792ffbac',
-  ) => {
+  const mutateUnfollowToggleApi = async (user) => {
+    console.log(user, 'user uf')
     try {
       const res = await axios.post(
         `/api/users/unfollow/${user}`,
@@ -45,6 +43,7 @@ const useMutateToggleFollow = () => {
           return { ...data.user }
         })
         queryClient.setQueryData(['getUsers'], (currentData) => {
+          console.log(data.users, 'cii')
           return [...data.users]
         })
       },
@@ -55,7 +54,25 @@ const useMutateToggleFollow = () => {
       },
     },
   )
-  const toggleUnfollowMutation = useMutation(mutateUnfollowToggleApi)
+  const toggleUnfollowMutation = useMutation(
+    mutateUnfollowToggleApi,
+    {
+      onSuccess: (data) => {
+        queryClient.setQueryData(['getUser', user._id], (currentData) => {
+          return { ...data.user }
+        })
+        queryClient.setQueryData(['getUsers'], (currentData) => {
+          console.log(data.users, 'ckk')
+          return [...data.users]
+        })
+      },
+    },
+    {
+      onSettled: () => {
+        queryClient.invalidateQueries(['getUsers', 'getPosts', 'getUser'])
+      },
+    },
+  )
   return { toggleFollowMutation, toggleUnfollowMutation }
 }
 

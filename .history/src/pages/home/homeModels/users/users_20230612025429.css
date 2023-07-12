@@ -1,9 +1,0 @@
-div{
-    >div{
-        display: flex;
-        >img{
-            height: auto;
-            width: 100%;
-        }
-    }
-}

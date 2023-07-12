@@ -4,9 +4,7 @@ import axios from 'axios'
 const useMutateToggleLike = () => {
   const queryClient = useQueryClient()
   const data = JSON.parse(localStorage.getItem('authData'))
-  const mutateLikeToggleApi = async (
-    user = 'c32e8a58-6e47-4dfb-83ce-23d9792ffbac',
-  ) => {
+  const mutateLikeToggleApi = async (user) => {
     try {
       const res = await axios.post(
         `/api/posts/like/${user}`,
@@ -20,9 +18,7 @@ const useMutateToggleLike = () => {
       console.error(error)
     }
   }
-  const mutateDislikeToggleApi = async (
-    user = 'c32e8a58-6e47-4dfb-83ce-23d9792ffbac',
-  ) => {
+  const mutateDislikeToggleApi = async (user) => {
     try {
       const res = await axios.post(
         `/api/posts/dislike/${user}`,
@@ -41,13 +37,19 @@ const useMutateToggleLike = () => {
     {
       onSuccess: (data) => {
         queryClient.setQueryData(['getPosts'], (currentData) => {
+          console.log(data, 'like data')
           return [...data.posts]
         })
       },
     },
     {
       onSettled: () => {
-        queryClient.invalidateQueries(['getPosts'])
+        queryClient.invalidateQueries([
+          'getBookMarks',
+          'getUsers',
+          'getPosts',
+          'getUser',
+        ])
       },
     },
   )
@@ -56,13 +58,19 @@ const useMutateToggleLike = () => {
     {
       onSuccess: (data) => {
         queryClient.setQueryData(['getPosts'], (currentData) => {
+          console.log(data, 'dis-like data')
           return [...data.posts]
         })
       },
     },
     {
       onSettled: () => {
-        queryClient.invalidateQueries(['getPosts'])
+        queryClient.invalidateQueries([
+          'getBookMarks',
+          'getUsers',
+          'getPosts',
+          'getUser',
+        ])
       },
     },
   )

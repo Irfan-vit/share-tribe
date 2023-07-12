@@ -69,6 +69,17 @@
 .about-user{
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2%;
+    > a {
+        text-decoration: none;
+        color: black;
+        font-weight: var(--font-weight-semi-bold);
+    }
+    > a:hover{
+        text-decoration: underline;
+    }
 }
 
 .search-users{

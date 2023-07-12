@@ -29,31 +29,23 @@ const Users = () => {
         {/* <div className="search-users"> */}
         {/* </div> */}
         {searchUsers?.map((user) => (
-          <Link to={`/user/${user._id}`} key={user._id}>
-            <div className="user">
-              <div className="image-user">
-                <img src={user.avatar} alt="" />
-              </div>
-              <div className="about-user">
-                <p>{user.username}</p>
-                <button
-                  onClick={() => {
-                    toggleFollowMutation.mutate(user._id)
-                    console.log('click')
-                  }}
-                >
-                  follow
-                </button>
-                {/* <button
+          <div className="user" key={user._id}>
+            <div className="image-user">
+              <img src={user.avatar} alt="" />
+            </div>
+
+            <div className="about-user">
+              <Link to={`/user/${user._id}`}>{user.username}</Link>
+              <button
                 onClick={() => {
-                  toggleUnfollowMutation.mutate(user._id)
+                  toggleFollowMutation.mutate(user._id)
+                  console.log('click')
                 }}
               >
-                Unfollow
-              </button> */}
-              </div>
+                follow
+              </button>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </>

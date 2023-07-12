@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import useSignup from '../../backend/queryHooks/auth/useSignup'
+import { Link } from 'react-router-dom'
 const Signup = () => {
   const navigate = useNavigate()
   const location = useLocation()
@@ -9,7 +10,7 @@ const Signup = () => {
     : null
   return (
     <>
-      <div>
+      <div className="auth">
         <form
           onSubmit={(e) => {
             e.preventDefault()
@@ -41,6 +42,7 @@ const Signup = () => {
           </label>
           <button>sign up</button>
         </form>
+        <Link to="/login">new user ? please sign up</Link>
       </div>
     </>
   )

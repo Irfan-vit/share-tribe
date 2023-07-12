@@ -1,0 +1,22 @@
+.auth{
+    width: 100%;
+    margin: 0 auto;
+    > a {
+        display: block;
+        text-align: center;
+        color: black;
+        text-decoration: underline;
+    }
+}
+.auth>form{
+    margin: 1rem;
+}
+.auth > form > label {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: 1rem;
+    >p{
+        text-align: center;
+    }
+}
