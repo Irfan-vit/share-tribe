@@ -1,3 +1,0 @@
-const PostCompose = () => {
-    returen
-}

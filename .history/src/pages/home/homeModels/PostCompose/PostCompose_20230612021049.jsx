@@ -1,6 +1,0 @@
-const PostCompose = () => {
-    return(
-        <>
-        </>
-    )
-}

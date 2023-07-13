@@ -31,6 +31,8 @@ const PostCompose = ({ editData, close }) => {
             </button>
           ) : (
             <button
+              disabled={!postText}
+              style={{ cursor: `${!postText ? 'not-allowed' : 'pointer'}` }}
               onClick={() => {
                 addPostsMutation.mutate({
                   content: postText,
