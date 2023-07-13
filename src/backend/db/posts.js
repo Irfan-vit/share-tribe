@@ -19,6 +19,7 @@ export const posts = [
     username: 'adarshbalika',
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    imgSrc: `https://picsum.photos/seed/${'adarshbalikaPosts'}/600`,
   },
   {
     _id: '436dd4a9-77d5-466a-af00-2cc732bf18e9',
@@ -32,6 +33,7 @@ export const posts = [
     username: 'jamesandreson',
     createdAt: '2023-06-12T01:06:00+05:30',
     updatedAt: '2023-06-12T01:06:00+05:30',
+    imgSrc: `https://picsum.photos/seed/${'jamesandresonPosts'}/600`,
   },
   {
     _id: uuid(),
@@ -45,6 +47,7 @@ export const posts = [
     username: 'alexevans',
     createdAt: '2022-11-10T01:06:00+05:30',
     updatedAt: '2022-11-10T01:06:00+05:30',
+    imgSrc: `https://picsum.photos/seed/${'alexevansPosts'}/600`,
   },
   {
     _id: uuid(),
@@ -58,6 +61,7 @@ export const posts = [
     username: 'richardmiller',
     createdAt: '2022-06-19T01:06:00+05:30',
     updatedAt: '2022-06-19T01:06:00+05:30',
+    imgSrc: `https://picsum.photos/seed/${'richardmillerPosts'}/600`,
   },
   {
     _id: uuid(),
@@ -71,6 +75,7 @@ export const posts = [
     username: 'marthawright',
     createdAt: '2021-03-11T01:06:00+05:30',
     updatedAt: '2021-03-11T01:06:00+05:30',
+    imgSrc: `https://picsum.photos/seed/${'marthawrightPosts'}/600`,
   },
   {
     _id: uuid(),
@@ -84,5 +89,6 @@ export const posts = [
     username: 'sarahparker',
     createdAt: '2021-09-08T01:06:00+05:30',
     updatedAt: '2021-09-08T01:06:00+05:30',
+    imgSrc: `https://picsum.photos/seed/${'sarahparkerPosts'}/600`,
   },
 ]
