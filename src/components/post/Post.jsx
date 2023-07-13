@@ -78,7 +78,6 @@ const Post = ({ post }) => {
                   >
                     delete
                   </button>
-                  {/* <span href="" className="span-full"></span> */}
                 </div>
               </div>
             )}
@@ -86,17 +85,7 @@ const Post = ({ post }) => {
         </div>
         <div className="post-content">
           <p>{post.content}</p>
-          <div>
-            {post.imgSrc ? <img src={post.imgSrc} alt="" /> : null}
-            {/* <img
-              src={
-                post.file
-                  ? post.file
-                  : 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
-              }
-              alt=""
-            /> */}
-          </div>
+          <div>{post.imgSrc ? <img src={post.imgSrc} alt="" /> : null}</div>
         </div>
         {/* <div> */}
         <ul className="post-icons">
@@ -117,7 +106,16 @@ const Post = ({ post }) => {
               <span className="material-symbols-outlined">favorite</span>
             </li>
           )}
-
+          <li>
+            <span
+              style={{
+                fontFamily:
+                  'TwitterChirp,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+              }}
+            >
+              {post.likes.likeCount}
+            </span>
+          </li>
           {/* <li>{post.likes?.likeCount ? post.likes?.likeCount : 0}</li> */}
 
           {ans ? (
