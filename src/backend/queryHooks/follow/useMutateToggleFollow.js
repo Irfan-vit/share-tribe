@@ -6,7 +6,6 @@ const useMutateToggleFollow = () => {
   const { user } = JSON.parse(localStorage.getItem('authData'))
   const data = JSON.parse(localStorage.getItem('authData'))
   const mutateFollowToggleApi = async (user) => {
-    console.log(user, 'user')
     try {
       const res = await axios.post(
         `/api/users/follow/${user}`,
@@ -21,7 +20,6 @@ const useMutateToggleFollow = () => {
     }
   }
   const mutateUnfollowToggleApi = async (user) => {
-    console.log(user, 'user uf')
     try {
       const res = await axios.post(
         `/api/users/unfollow/${user}`,
@@ -43,7 +41,6 @@ const useMutateToggleFollow = () => {
           return { ...data.user }
         })
         queryClient.setQueryData(['getUsers'], (currentData) => {
-          console.log(data.users, 'cii')
           return [...data.users]
         })
       },
@@ -62,7 +59,6 @@ const useMutateToggleFollow = () => {
           return { ...data.user }
         })
         queryClient.setQueryData(['getUsers'], (currentData) => {
-          console.log(data.users, 'ckk')
           return [...data.users]
         })
       },

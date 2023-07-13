@@ -7,7 +7,6 @@ const useMutateUserData = () => {
   const { authData } = useAuth()
   const { user } = JSON.parse(localStorage.getItem('authData'))
   const { token } = JSON.parse(localStorage.getItem('authData'))
-  console.log(token, 'ad')
   const mutateUserApi = async (userData) => {
     const res = await axios.post(
       `/api/users/edit`,

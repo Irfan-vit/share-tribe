@@ -23,7 +23,6 @@ const useMutateBookMarksData = () => {
         headers: { authorization: authData.token },
       },
     )
-    console.log(res.data, 'remove data')
     return res.data
   }
   const addBookMarkMutation = useMutation(

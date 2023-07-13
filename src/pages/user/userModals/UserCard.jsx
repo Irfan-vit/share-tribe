@@ -29,7 +29,6 @@ const UserCard = () => {
     (user) => user?.username === getUserQuery?.data?.username,
   )
 
-  console.log(userData?.following, 'fw')
 
   const postsOfFollowingUsers = getPostsQuery?.data?.filter(
     (post) => getUserQuery.data?.username === post.username,
@@ -51,7 +50,6 @@ const UserCard = () => {
             <button
               onClick={() => {
                 toggleFollowMutation.mutate(getUserQuery?.data?._id)
-                console.log(toggleFollowMutation.data, 'click')
               }}
             >
               follow
@@ -60,7 +58,6 @@ const UserCard = () => {
             <button
               onClick={() => {
                 toggleUnfollowMutation.mutate(getUserQuery?.data?._id)
-                console.log(toggleUnfollowMutation.data, 'ufd')
               }}
             >
               Unfollow

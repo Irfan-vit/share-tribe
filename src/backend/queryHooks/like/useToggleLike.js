@@ -37,7 +37,6 @@ const useMutateToggleLike = () => {
     {
       onSuccess: (data) => {
         queryClient.setQueryData(['getPosts'], (currentData) => {
-          console.log(data, 'like data')
           return [...data.posts]
         })
       },
@@ -58,7 +57,6 @@ const useMutateToggleLike = () => {
     {
       onSuccess: (data) => {
         queryClient.setQueryData(['getPosts'], (currentData) => {
-          console.log(data, 'dis-like data')
           return [...data.posts]
         })
       },

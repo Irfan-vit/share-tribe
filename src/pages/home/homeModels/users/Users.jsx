@@ -26,8 +26,6 @@ const Users = () => {
   return (
     <>
       <div className="users-container">
-        {/* <div className="search-users"> */}
-        {/* </div> */}
         {searchUsers?.map((user) => (
           <div className="user" key={user._id}>
             <div className="image-user">
@@ -39,7 +37,6 @@ const Users = () => {
               <button
                 onClick={() => {
                   toggleFollowMutation.mutate(user._id)
-                  console.log('click')
                 }}
               >
                 follow

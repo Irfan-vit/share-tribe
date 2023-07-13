@@ -9,9 +9,12 @@ import { useAuth } from '../../context/AuthContext'
 import './post.css'
 import PostCompose from '../../pages/home/homeModels/PostCompose/PostCompose'
 import axios from 'axios'
+import { useQueryClient } from '@tanstack/react-query'
 const Post = ({ post }) => {
+  const queryclient = useQueryClient()
+  const { user } = JSON.parse(localStorage.getItem('authData'))
+  const userData = queryclient.getQueryData(['getUser', user._id])
   const { getBookMarksQuery } = useGetBookMarks()
-  console.log(getBookMarksQuery?.data)
   const ans = getBookMarksQuery?.data?.some((el) => el._id === post._id)
   const { getUsersQuery, getUserQuery } = useGetUsers()
   const {
@@ -25,6 +28,9 @@ const Post = ({ post }) => {
   const { toggleLikeMutation, toggleDislikeMutation } = useMutateToggleLike()
   const [openPost, setOpenPost] = useState(false)
   const [currentPostId, setCurrentPostId] = useState(null)
+  const isliked = () =>
+    post.likes?.likedBy?.filter(({ _id }) => _id === userData?._id)?.length !==
+    0
 
   return (
     <>
@@ -93,7 +99,7 @@ const Post = ({ post }) => {
         </div>
         {/* <div> */}
         <ul className="post-icons">
-          {post.likes?.likeCount ? (
+          {isliked() ? (
             <li
               onClick={() => {
                 toggleDislikeMutation.mutate(post._id)

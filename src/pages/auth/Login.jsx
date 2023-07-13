@@ -20,7 +20,6 @@ const Login = () => {
               username: formData?.get('userName'),
               password: formData?.get('password'),
             }
-            console.log(userData)
             loginMutation.mutate(userData)
           }}
         >
