@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Modal } from 'react-responsive-modal'
 import 'react-responsive-modal/styles.css'
 import PostCompose from '../../pages/home/homeModels/PostCompose/PostCompose'
 import './nav.css'
 
 const Nav = () => {
+  const navigate = useNavigate()
   const { user } = JSON.parse(localStorage.getItem('authData'))
   const [suggestedUsers, setSuggestedUsers] = useState('')
   const [open, setOpen] = useState(false)
@@ -77,6 +78,18 @@ const Nav = () => {
             <Link onClick={() => setOpenPost(true)}>
               <span className="material-symbols-outlined nav-icons">
                 post_add
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={() => {
+                localStorage.clear()
+                navigate('/login')
+              }}
+            >
+              <span className="material-symbols-outlined nav-icons">
+                logout
               </span>
             </Link>
           </li>
